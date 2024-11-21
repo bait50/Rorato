@@ -1,0 +1,117 @@
+<div class="container-fluid">
+    <!-- Encabezado con búsqueda -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="text-center mb-4">Bienvenido a Rotato</h1>
+            <div class="search-wrapper">
+                <div class="input-group">
+                    <input type="text" 
+                           id="searchBar" 
+                           class="form-control search-bar" 
+                           placeholder="Buscar reseñas por título, género o autor..."
+                           aria-label="Buscar reseñas">
+                    <button class="btn btn-primary" type="button" onclick="searchReviews()">
+                        Buscar
+                    </button>
+                </div>
+                <!-- Filtros -->
+                <div class="filters mt-3">
+                    <select class="form-select me-2" id="genreFilter">
+                        <option value="">Todos los géneros</option>
+                        <option value="accion">Acción</option>
+                        <option value="aventura">Aventura</option>
+                        <option value="rpg">RPG</option>
+                        <option value="estrategia">Estrategia</option>
+                        <option value="deportes">Deportes</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor de reseñas -->
+    <div id="reviewsContainer" class="row g-4">
+        <!-- Las reseñas se cargarán dinámicamente aquí -->
+    </div>
+
+    <!-- Template para las reseñas -->
+    <template id="reviewTemplate">
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100" data-review-id="">
+                <img src="" class="card-img-top game-image" alt="Imagen del juego" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title game-title"></h5>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="rating"></div>
+                        <small class="text-muted">
+                            Por <span class="author"></span> | 
+                            <span class="date"></span>
+                        </small>
+                    </div>
+                    <p class="card-text game-description"></p>
+                    <div class="stats-container mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">
+                                <i class="fas fa-heart"></i> <span class="likes-count">0</span> Me gusta
+                            </span>
+                            <span class="text-muted">
+                                <i class="fas fa-comment"></i> <span class="comments-count">0</span> Comentarios
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button class="btn btn-outline-primary btn-sm" onclick="verDetalles(this)">
+                            Ver más
+                        </button>
+                        <button class="btn btn-outline-success btn-sm favorite-btn" onclick="toggleFavorite(this)">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Sección de comentarios colapsable -->
+                <div class="card-footer">
+                    <div class="comments-section">
+                        <button class="btn btn-link p-0 mb-2" type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#comments-{ID}">
+                            Ver comentarios
+                        </button>
+                        <div class="collapse" id="comments-{ID}">
+                            <div class="comments-list mb-3">
+                                <!-- Los comentarios se cargarán aquí -->
+                            </div>
+                            <form class="comment-form">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Escribe un comentario...">
+                                    <button class="btn btn-primary btn-sm" type="submit">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Modal para ver reseña completa -->
+    <div class="modal fade" id="reviewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" class="img-fluid rounded mb-3 w-100 modal-game-image">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="modal-rating"></div>
+                        <small class="text-muted modal-metadata"></small>
+                    </div>
+                    <p class="modal-description"></p>
+                    <hr>
+                    <div class="modal-review"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

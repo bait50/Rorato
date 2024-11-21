@@ -1,0 +1,57 @@
+<div class="container py-4">
+    <h2 class="text-center mb-4">Nueva Reseña</h2>
+    <div class="card">
+        <div class="card-body">
+            <form id="reviewForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Título del Juego</label>
+                        <input type="text" name="gameTitle" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Año de Lanzamiento</label>
+                        <input type="number" name="releaseYear" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Imagen del Juego (URL)</label>
+                    <input type="file" name="gameImage" class="form-control" placeholder="https://ejemplo.com/imagen.jpg">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Género</label>
+                    <select name="genre" class="form-select" required>
+                        <option value="accion">Acción</option>
+                        <option value="aventura">Aventura</option>
+                        <option value="rpg">RPG</option>
+                        <option value="estrategia">Estrategia</option>
+                        <option value="deportes">Deportes</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Descripción Corta</label>
+                    <textarea name="description" class="form-control" rows="2" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Reseña Completa</label>
+                    <textarea name="review" class="form-control" rows="5" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Calificación</label>
+                    <select name="rating" class="form-select" required>
+                        <option value="5">★★★★★ (5)</option>
+                        <option value="4">★★★★☆ (4)</option>
+                        <option value="3">★★★☆☆ (3)</option>
+                        <option value="2">★★☆☆☆ (2)</option>
+                        <option value="1">★☆☆☆☆ (1)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Publicar Reseña</button>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+   .container {
+       background-color:  #1B1B1B;
+   }
+</style>

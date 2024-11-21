@@ -1,0 +1,72 @@
+<!--se implementara la vista donde los usuarios podran ver sus datos y editarlos-->
+<div class="container py-4">
+    <div class="row">
+        <!-- Sección izquierda: Foto y datos básicos -->
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="img/user-default.png" alt="Foto de perfil" 
+                         class="rounded-circle img-fluid mb-3" style="width: 150px;" id="profileImage">
+                    <h5 class="card-title" id="displayUsername">Nombre de Usuario</h5>
+                    <button class="btn btn-outline-primary mt-2" onclick="editProfilePicture()">
+                        Cambiar foto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Estadísticas del usuario -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Estadísticas</h5>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <h6>Reseñas</h6>
+                            <p id="reviewsCount" class="h4">0</p>
+                        </div>
+                        <div class="col-4">
+                            <h6>Me gusta</h6>
+                            <p id="likesCount" class="h4">0</p>
+                        </div>
+                        <div class="col-4">
+                            <h6>Comentarios</h6>
+                            <p id="commentsCount" class="h4">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección derecha: Formulario y reseñas -->
+        <div class="col-md-8">
+            <!-- Formulario de edición -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Editar Perfil</h4>
+                    <form id="profileForm">
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="profileEmail" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="profileUsername" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Guardar Cambios
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Mis Reseñas -->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Mis Reseñas</h4>
+                    <div id="userReviews" class="row g-3">
+                        <!-- Las reseñas se cargarán dinámicamente aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

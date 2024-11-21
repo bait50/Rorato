@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotato - Iniciar Sesión</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="img/logo.jpg" alt="Rotato Logo" class="login-logo">
+            <h2>Iniciar Sesión</h2>
+        </div>
+
+        <!-- Alerts Container -->
+        <div id="alertsContainer"></div>
+
+        <form id="loginForm" data-parsley-validate>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    id="email" 
+                    name="email"
+                    required 
+                    data-parsley-type="email"
+                    data-parsley-error-message="Por favor ingresa un correo válido"
+                >
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="form-label">Contraseña</label>
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    id="password" 
+                    name="password"
+                    required 
+                    data-parsley-length="[6,20]"
+                    data-parsley-error-message="La contraseña debe tener entre 6 y 20 caracteres"
+                >
+            </div>
+
+            <button type="submit" class="btn btn-login w-100 mb-3">
+                Iniciar Sesión
+            </button>
+
+            <div class="text-center">
+                <span>¿No tienes una cuenta? </span>
+                <a href="register.html" class="register-link">Regístrate aquí</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="js/parsley-es.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

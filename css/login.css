@@ -1,0 +1,130 @@
+/* Variables globales */
+:root {
+    --carbon-black: #1B1B1B;
+    --neon-green: #32FF7E;
+    --electric-purple: #9B59B6;
+    --pure-white: #FFFFFF;
+    --metallic-gray: #7F8C8D;
+}
+
+body {
+    background-color: var(--carbon-black);
+    color: var(--pure-white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background-color: rgba(127, 140, 141, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(50, 255, 126, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 2px var(--neon-green));
+    }
+    to {
+        filter: drop-shadow(0 0 8px var(--neon-green));
+    }
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--metallic-gray);
+    color: var(--pure-white);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 0 0.25rem rgba(50, 255, 126, 0.25);
+    color: var(--pure-white);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-login {
+    background-color: var(--electric-purple);
+    border: none;
+    color: var(--pure-white);
+    padding: 0.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-login:hover {
+    background-color: #8e44ad;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4);
+}
+
+/* Agregar estilos para el estado disabled del botón */
+.btn-login:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.register-link {
+    color: var(--neon-green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.register-link:hover {
+    color: #2ecc71;
+    text-shadow: 0 0 8px rgba(50, 255, 126, 0.5);
+}
+
+/* Mejorar la accesibilidad con focus visible */
+.form-control:focus-visible,
+.btn-login:focus-visible,
+.register-link:focus-visible {
+    outline: 2px solid var(--neon-green);
+    outline-offset: 2px;
+}
+
+.parsley-errors-list {
+    color: #ff6b6b;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+    font-size: 0.875rem;
+}
+
+.alert {
+    border: none;
+    border-radius: 8px;
+}
+
+.alert-success {
+    background-color: rgba(50, 255, 126, 0.2);
+    color: var(--neon-green);
+}
+
+.alert-danger {
+    background-color: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+}

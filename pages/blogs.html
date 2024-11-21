@@ -1,0 +1,93 @@
+<div class="container py-4">
+    <h2 class="text-center mb-4">Blog de Gaming</h2>
+
+    <!-- Botón para crear nuevo blog (solo visible para usuarios) -->
+    <div class="text-end mb-4">
+        <button class="btn btn-primary" onclick="showNewBlogForm()">
+            <i class="fas fa-plus"></i> Nuevo Blog
+        </button>
+    </div>
+
+    <!-- Filtros y búsqueda -->
+    <div class="search-wrapper mb-4">
+        <div class="input-group">
+            <input type="text" 
+                   id="blogSearchBar" 
+                   class="form-control" 
+                   placeholder="Buscar blogs por título o autor...">
+            <button class="btn btn-primary" onclick="searchBlogs()">
+                <i class="fas fa-search"></i> Buscar
+            </button>
+        </div>
+        <div class="filters mt-3">
+            <select class="form-select" id="blogCategoryFilter">
+                <option value="">Todas las categorías</option>
+                <option value="noticias">Noticias</option>
+                <option value="guias">Guías</option>
+                <option value="analisis">Análisis</option>
+                <option value="opiniones">Opiniones</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Contenedor de blogs -->
+    <div id="blogsContainer" class="row g-4">
+        <!-- Los blogs se cargarán dinámicamente aquí -->
+    </div>
+
+    <!-- Template para los blogs -->
+    <template id="blogTemplate">
+        <div class="col-md-6">
+            <div class="card h-100 blog-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="badge bg-primary category-badge"></span>
+                        <small class="text-muted date"></small>
+                    </div>
+                    <h5 class="card-title blog-title"></h5>
+                    <p class="card-text blog-excerpt"></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Por <span class="author"></span></small>
+                        <button class="btn btn-outline-primary btn-sm" onclick="verBlogCompleto(this)">
+                            Leer más
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Modal para nuevo blog -->
+    <div class="modal fade" id="newBlogModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear Nuevo Blog</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="blogForm">
+                        <div class="mb-3">
+                            <label class="form-label">Título</label>
+                            <input type="text" class="form-control" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Categoría</label>
+                            <select class="form-select" name="category" required>
+                                <option value="noticias">Noticias</option>
+                                <option value="guias">Guías</option>
+                                <option value="analisis">Análisis</option>
+                                <option value="opiniones">Opiniones</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contenido</label>
+                            <textarea class="form-control" name="content" rows="10" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Publicar Blog</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
